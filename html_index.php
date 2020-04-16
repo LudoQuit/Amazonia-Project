@@ -84,7 +84,7 @@
 							<td><p>Madame, Monsieur,<br><br>
 								Suite à la crise du Covid-19 et aux différentes mesures prises par le gouvernement, la livraison ainsi que la disponibilité de certains produits risquent d'être compromises. Nos équipes font actuellement tout leur possible pour satisfaire votre demande et y répondre dans les délais les plus courts possibles. Merci de votre compréhension.<br><br>
 								Courage à tous.</p>
-								<p class="text-right">Ludovic, Aymeric et Rémy, fondateurs d'ebay ECE</p></td>
+								<p class="text-right">Ludovic, Aymeric et Rémy, fondateurs d'amazonia</p></td>
 						</tr>
 					</table>
 					<br>

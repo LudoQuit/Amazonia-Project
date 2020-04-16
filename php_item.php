@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Amazonia :: Acheter</title>
+	<title>Amazonia :: Accueil</title>
 	<meta charset="utf-8">
 	<!--BOOTSTRAP-->
 	<meta name= "viewport" content= "width=device-width, initial-scale=1">
@@ -24,29 +24,29 @@
  			<a href="index.html"><div class="col-md-3" style="height:100px; background-color:#3B5565;"><h1 class="logo">amazonia</h1></div></a>
  			<!--RETOURNER A L'ACCEUIL-->
  			<div class="col-md-1" style="height:100px; background-color:#3B5565;">
-				<h4 class="menu"><a class="clickmenu" href="html_index.php"><img src="accueil.gif" class="imgmenu" alt="accueil">Accueil</a></h4>
+				<h4 class="menu"><a class="clickmenu" href="index.html"><img src="accueil.gif" class="imgmenu" alt="accueil">Accueil</a></h4>
  			</div>
  			<!--FAIRE UN ACHAT-->
  			<div class="col-md-1" style="height:100px; background-color:#3B5565;">
-				<h4 class="menu"><a class="clickmenu" href="html_achat.php"><img src="achat.gif" class="imgmenu" alt="achat">Acheter</a></h4>
+				<h4 class="menu"><a class="clickmenu" href="achat.html"><img src="achat.gif" class="imgmenu" alt="achat">Acheter</a></h4>
  			</div>
  			<!--VENDRE UN PRODUIT-->
  			<div class="col-md-1" style="height:100px; background-color:#3B5565;">
-				<h4 class="menu"><a class="clickmenu" href="html_vente.php"><img src="vente.gif" class="imgmenu" alt="vente">Vendre</a></h4>
+				<h4 class="menu"><a class="clickmenu" href="vente.html"><img src="vente.gif" class="imgmenu" alt="vente">Vendre</a></h4>
  			</div>
  			<!--SE CONNECTER A SON COMPTE PERSO-->
  			<div class="col-md-1" style="height:100px; background-color:#3B5565;">
-				<h4 class="menu"><a class="clickmenu" href="html_compte.php"><img src="compte.gif" class="imgmenu" alt="compte">Compte</a></h4>
+				<h4 class="menu"><a class="clickmenu" href="compte.html"><img src="compte.gif" class="imgmenu" alt="compte">Compte</a></h4>
  			</div>
  			<!--PANIER-->
  			<div class="col-md-1" style="height:100px; background-color:#3B5565;">
-				<h4 class="menu"><a class="clickmenu" href="html_panier.php"><img src="panier.gif" class="imgmenu" alt="panier">Panier</a></h4>
+				<h4 class="menu"><a class="clickmenu" href="panier.html"><img src="panier.gif" class="imgmenu" alt="panier">Panier</a></h4>
  			</div>
  			<!--ESPACE QUI EST INUTILE-->
  			<div class="col-md-3" style="height:100px; background-color:#3B5565;"></div>
  			<!--ESPACE ADMINISTRATEUR DU SITE-->
  			<div class="col-md-1" style="height:100px; background-color:#3B5565;">
-				<h4 class="menu"><a class="clickmenu" href="html_admin.php"><img src="admin.gif" class="imgmenu" alt="admin">Admin</a></h4>
+				<h4 class="menu"><a class="clickmenu" href="admin.html"><img src="admin.gif" class="imgmenu" alt="admin">Admin</a></h4>
  			</div>
 		</div>
 
@@ -73,65 +73,21 @@
 					<tr><td align="right"><input type="button" name="filtrer" value="Filtrer"></td></tr>
 				</table></form>
 			</div>
-			<!--CONTENU DU COTE DROIT-->
+			<!--CONTENU DE LA PAGE-->
 			<div class="col-md-9" id="contenu">
-				<h1 class="entete">Acheter</h1>
-				<div class="cadre">
-				<br>
-				<form method="post" action="php_achat.php"><table style="margin-left: -25px;" class="table">
-					<tr>
-						<td style="background-color: #3B5565;">
-							<h4 class="entete" style="color: white; width: 100px;">Catégorie :</h4>
-						</td>
-						<td>
-							<input style="border:1px solid #3B5565;background-color: #ccc;color: #3B5565; width: 180px;" class="btn btn-outline-secondary btn-lg" type="submit" name="tresor" value="Féraille ou trésor">
-						</td>
-						<td>
-							<input style="border:1px solid #3B5565;background-color: #ccc;color: #3B5565; width: 180px;" class="btn btn-outline-secondary btn-lg" type="submit" name="musee" value="Bon pour le Musée"> 
-						</td>
-						<td>
-							<input style="border:1px solid #3B5565;background-color: #ccc;color: #3B5565; width: 180px;" class="btn btn-outline-secondary btn-lg" type="submit" name="vip" value="Accessoires VIP"> 
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td style="background-color: #3B5565;">
-							<h4 class="entete" style="color: white;">Achats :</h4>
-						</td>
-						<td>
-							<input style="border:1px solid #3B5565;background-color: #ccc;color: #3B5565; width: 180px;" class="btn btn-outline-secondary btn-lg" type="submit" name="enchere" value="Enchères"> 
-						</td>
-						<td>
-							<input style="border:1px solid #3B5565;background-color: #ccc;color: #3B5565; width: 180px;" class="btn btn-outline-secondary btn-lg" type="submit" name="achat" value="Achat immédiat"> 
-						</td>
-						<td>
-							<input style="border:1px solid #3B5565;background-color: #ccc;color: #3B5565; width: 180px;" class="btn btn-outline-secondary btn-lg" type="submit" name="offre" value="Meilleure offre"> 
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</table></form>
-				</div>
+				<?
+					
+				?>
 			</div>
+		</div>
 
 		<!--FOOTER A COMPLETER-->
 		<div class="row">
  			<div class="col-md-12" style="height:75px; background-color:#3B5565; text-align: center;">
  				<br>
- 				<p class="menu">Contact : <a href="mailto:serviceclient@amazonia.fr" class="menu">serviceclient@amazonia.fr</a></p>
+ 				<p class="menu">Contact : <a href="mailto:ludovic.quiterio@edu.ece.fr" class="menu">ludovic.quiterio@edu.ece.fr</a></p>
  			</div>
 		</div>
 	</div>
 </body>
 </html>
-
-
