@@ -1,0 +1,109 @@
+/*pour le logo d'amazonia*/
+.logo{
+	color: white;
+	font-weight: bold;
+	margin-top: 25px;
+	margin-left: 10px;
+	font-size:50px;
+}
+/*pour les intitulés du menu en haut*/
+.menu{
+	color: white;
+	font-weight: bold;
+	margin-top: 5px;
+	text-align: center;
+}
+
+/*pour les logos du menu en haut*/
+.imgmenu{
+	height: 70px;
+	width: 70px;
+	padding-top: 15px;
+	padding-left: 5px;
+	padding-right: 4px;
+}
+
+/*pour le bloc du menu détaillé à gauche*/
+#sommaire{
+	min-height: 500px;
+	background-color: white;
+	border: solid;
+	border-color: #3B5565;
+	border-width: 1px;
+	border-top: none;
+	
+	border-left-width: 10px;
+	border-right-width: 10px;
+}
+
+/*pour le bloc du contenu à droite*/
+#contenu{
+	min-height: 400px;
+	background-color: white;
+	border: solid;
+	border-color: #3B5565;
+	border-left: none;
+	border-top: none;
+	border-bottom: none;
+	border-right-width: 10px;
+}
+
+/*pour les liens du menu*/
+.clickmenu{
+	text-decoration: none;
+	color: white;
+}
+
+/*quand on passe la souris sur les liens*/
+.clickmenu:hover{
+	text-decoration: underline;
+	color: white;
+}
+
+/*pour les liens du menu déroulant*/
+.clickleft{
+	text-decoration: none;
+	color: #3B5565;
+}
+
+/*quand on passe la souris dessus*/
+.clickleft:hover{
+	text-decoration: underline;
+	color: #3B5565;
+}
+
+/*pour le cadre autour de la zone de connexion*/
+.cadre{
+	width:650px;
+	min-height:200px;
+	margin:20px 100px 20px 100px;
+	background-color: white;
+	border: solid;
+	border-width: 2px;
+	border-right: none;
+	border-left: none;
+	border-color: #3B5565;
+}
+
+/*pour le texte général*/
+p{
+	color: #3B5565;
+}
+
+/*pour les en-têtes des pages*/
+.entete{
+	color: #3B5565;
+	font-weight: bold;
+	margin-top: 20px;
+	text-align: center;
+}
+
+/*pour les images des articles*/
+.imgarticle{
+	height:200px;
+	width:180px;
+	padding-right: 40px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+
+}
