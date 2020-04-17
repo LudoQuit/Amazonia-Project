@@ -73,12 +73,12 @@
 				if($classe == "acheteur"){
 					$sql  = " INSERT INTO acheteur(email, pseudo, password) VALUES ('$mail', '$pseudo', '$pw')";
 					$result = mysqli_query($db_handle, $sql);
-					echo "Add successful";
+					/* SE CONNECTER AU COMPTE DE L'ACHETEUR*/
 				}
 				if($classe == "vendeur"){
 					$sql  = " INSERT INTO vendeur(nom, prenom, email, pseudo, password) VALUES ('', '', '$mail', '$pseudo', '$pw')";
 					$result = mysqli_query($db_handle, $sql);
-					echo "Add successful";
+					/* SE CONNECTER AU COMPTE DU VENDEUR*/
 				}
 				
 			}

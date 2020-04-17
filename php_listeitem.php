@@ -11,7 +11,7 @@ if(Auth::isLogged()){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin :: Vendeurs</title>
+	<title>Admin :: Items</title>
 	<meta charset="utf-8">
 	<!--BOOTSTRAP-->
 	<meta name= "viewport" content= "width=device-width, initial-scale=1">
@@ -85,37 +85,42 @@ if(Auth::isLogged()){
 			</div>
 			<!--CONTENU-->
 			<div class="col-md-9" id="contenu">
-				<h1 class="entete">Supprimer des vendeurs</h1>
+				<h1 class="entete">Supprimer des items</h1>
 				<div class="cadre">
 					<br>
-					<form  action="php_suppvendeur.php" method="POST">
+					<form  action="php_suppitem.php" method="POST">
 					<table class="table">
 						<tr>
-    				        <th>id</th>
-    				        <th>nom</th>
-    				        <th>prenom</th>
-    				        <th>email</th>
-    				        <th>pseudo</th>
-    				        <th>mot de passe</th>
-    				        <th>supprimer</th>
-						</tr>
-						<?php
-							$connect = mysqli_connect('localhost','root','');
+    	    			    <th>id</th>
+    	    			    <th>nom</th>
+        				    <th>description</th>
+    	    			    <th>prix de base</th>
+    	    			    <th>prix en cours</th>
+    	    			    <th>photo</th>
+    	    			    <th>date</th>
+    	    			    <th>catégorie</th>
+    	    			    <th>type de vente</th>
+    	    			</tr>
+
+    					<?php
+							$connect = mysqli_connect("localhost","root","");
 							mysqli_select_db( $connect,'amazonia');
-							$vendeur = "SELECT * FROM vendeur";
-							$result = mysqli_query($connect, $vendeur) or exit ('Erreur SQL !'.$vendeur.'<br>'.			mysqli_error());;
+							$item = "SELECT * FROM item";
+							$result = mysqli_query($connect, $item) or exit ('Erreur SQL !'.$item.'<br>'.mysqli_error());;
 		
 							while ($ligne = mysqli_fetch_array($result)){
 								echo"<tr><td>".$ligne['id']."</td>";
 								echo"<td>".$ligne['nom']."</td>";
-								echo"<td>".$ligne['prenom']."</td>";
-								echo"<td>".$ligne['email']."</td>";
-								echo"<td>".$ligne['pseudo']."</td>";
-								echo"<td>".$ligne['password']."</td>";
+								echo"<td>".$ligne['description']."</td>";
+								echo"<td>".$ligne['prixbase']."</td>";
+								echo"<td>".$ligne['prixcourant']."</td>";
+								echo"<td>".$ligne['photo']."</td>";
+								echo"<td>".$ligne['date']."</td>";
+								echo"<td>".$ligne['id_categorie']."</td>";
+								echo"<td>".$ligne['id_achat']."</td>";
 								echo"<td><input type='checkbox' name='delete[]' value='".$ligne['id']."'></td>";
 								echo "</tr>";
 							}
-								mysqli_close($connect);
 						?>
 					</table>
 					<input type="submit" name="supp" value="Supprimer">

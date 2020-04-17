@@ -92,6 +92,12 @@
                         		if($error==3){
                         			echo "<p style='color:red'>Veuillez entrer votre mot de passe.</p>";
                         		}
+                        		if($error==4){
+                        			echo "<p style='color:red'>Identifiant invalide.</p>";
+                        		}
+                        		if($error==5){
+                        			echo "<p style='color:red'>Mot de passe invalide</p>";
+                        		}
                         	}
                         ?>
 						<table class="table" align="center">
