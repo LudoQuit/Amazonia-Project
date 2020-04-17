@@ -1,7 +1,17 @@
+<?php
+session_start();
+require('php_auth.php');
+if(Auth::isLogged()){
+
+} else{
+	header('Location:html_admin.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Amazonia :: Admin</title>
+	<title>Admin :: Items</title>
 	<meta charset="utf-8">
 	<!--BOOTSTRAP-->
 	<meta name= "viewport" content= "width=device-width, initial-scale=1">
@@ -46,7 +56,7 @@
  			<div class="col-md-3" style="height:100px; background-color:#3B5565;"></div>
  			<!--ESPACE ADMINISTRATEUR DU SITE-->
  			<div class="col-md-1" style="height:100px; background-color:#3B5565;">
-				<h4 class="menu"><a class="clickmenu" href="html_admin.php"><img src="admin.gif" class="imgmenu" alt="admin">Admin</a></h4>
+				<h4 class="menu"><a class="clickmenu" href="php_logout.php"><img src="admin.gif" class="imgmenu" alt="admin">Log out</a></h4>
  			</div>
 		</div>
 
@@ -73,57 +83,28 @@
 					<tr><td align="right"><input type="button" name="filtrer" value="Filtrer"></td></tr>
 				</table></form>
 			</div>
-
-			<!--CONTNENU DU COTE DROIT-->
-			<!--FORMULAIRE DE CONNEXION OU D'INSCRIPTION-->
+			<!--CONTENU-->
 			<div class="col-md-9" id="contenu">
-				<h1 class="entete">Administrateur</h1>
+				<h1 class="entete">Pouvoirs de l'administrateurs</h1>
 				<div class="cadre">
-					<form id="formadmin" action="php_admin.php" method="post">
-						<br>
-						<?php
-                			if(isset($_GET['err'])){
-                    			$error = $_GET['err'];
-                    			if($error==1){
-                        			echo "<p style='color:red'>Veuillez entrer votre identifiant.</p>";
-                        		}
-                        		if($error==2){
-                        			echo "<p style='color:red'>Veuillez entrer une adresse email.</p>";
-                        		}
-                        		if($error==3){
-                        			echo "<p style='color:red'>Veuillez entrer un mot de passe.</p>";
-                        		}
-                        	}
-                        ?>
-						<table class="table" align="center">
-							<tr>
-								<td><p>Identifiant :</p></td>
-								<td colspan="2"><input type="text" name="idadmin" style="width: 350px;"></td>
-							</tr>
-							<tr>
-								<td><p>Adresse mail :</p></td>
-								<td colspan="2"><input type="text" name="mailadmin" style="width: 350px;"></td>
-							</tr>
-							<tr>
-								<td><p>Mot de passe :</p></td>
-								<td colspan="2"><input type="password" name="pwadmin" style="width: 350px;"></td>
-							</tr>
-							<tr>
-								<td colspan="3" align="center"><input type="submit" name="connexion" value="Se connecter"></td>
-							</tr>
-						</table>
-					</form>
-					
+
+				<form action="php_choixadmin.php" method="POST">
+
+				<table class="table" style="margin-left: 70px;">
+					<td><input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px"  type="submit" name="vendeur" value="Liste vendeurs"></td>
+					<td><input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px;"  type="submit" name="item" value="Liste items"></td>
+				</table>
+
+				</form>
+
 				</div>
-				
 			</div>
-		</div>
 
 		<!--FOOTER A COMPLETER-->
 		<div class="row">
  			<div class="col-md-12" style="height:75px; background-color:#3B5565; text-align: center;">
  				<br>
- 				<p class="menu">Contact : <a href="mailto:ludovic.quiterio@edu.ece.fr" class="menu">serviceclient@amazonia.fr</a></p>
+ 				<p class="menu">Contact : <a href="mailto:serviceclient@amazonia.fr" class="menu">serviceclient@amazonia.fr</a></p>
  			</div>
 		</div>
 	</div>

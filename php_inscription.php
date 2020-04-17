@@ -29,7 +29,7 @@
 		exit;
 	}
 
-
+	session_start();
 
 	$database = "amazonia";
 
@@ -73,12 +73,22 @@
 				if($classe == "acheteur"){
 					$sql  = " INSERT INTO acheteur(email, pseudo, password) VALUES ('$mail', '$pseudo', '$pw')";
 					$result = mysqli_query($db_handle, $sql);
-					/* SE CONNECTER AU COMPTE DE L'ACHETEUR*/
+					$_SESSION['Auth'] = array(
+						'pseudo' => $pseudo,
+						'email' => $mail,
+						'password' => $pw
+					);
+					header('Location: http://127.0.0.1/html_pageperso.php');
 				}
 				if($classe == "vendeur"){
 					$sql  = " INSERT INTO vendeur(nom, prenom, email, pseudo, password) VALUES ('', '', '$mail', '$pseudo', '$pw')";
 					$result = mysqli_query($db_handle, $sql);
-					/* SE CONNECTER AU COMPTE DU VENDEUR*/
+					$_SESSION['Auth'] = array(
+						'pseudo' => $pseudo,
+						'email' => $mail,
+						'password' => $pw
+					);
+					header('Location: http://127.0.0.1/html_pageperso.php');
 				}
 				
 			}
