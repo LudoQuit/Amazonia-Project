@@ -30,7 +30,8 @@
 		} else {
 			$requete = mysqli_query($connect, "SELECT * FROM admin WHERE pseudo = '$idadmin' AND email = '$mailadmin' AND password = '$pwadmin'");
 			if(mysqli_num_rows($requete) == 0){
-				echo"Imposteur ! Vous n'êtes pas un admin !";
+				header('Location: http://127.0.0.1/html_admin.php?err=4');
+				exit;
 			} else {
 				echo"Vous êtes bien connecté ! ";
 				$_SESSION['Auth'] = array(

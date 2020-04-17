@@ -93,6 +93,9 @@
                         		if($error==3){
                         			echo "<p style='color:red'>Veuillez entrer un mot de passe.</p>";
                         		}
+                        		if($error==4){
+                        			echo "<p style='color:red'>Imposteur ! Vous n'êtes pas un administrateur.</p>";
+                        		}
                         	}
                         ?>
 						<table class="table" align="center">
