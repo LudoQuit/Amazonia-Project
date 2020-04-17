@@ -99,6 +99,12 @@
                         		if($error==5){
                         			echo "<p style='color:red'>Les deux mots de passe entrés doivent être identiques.</p>";
                         		}
+                        		if($error==6){
+                        			echo "<p style='color:red'>Un compte existe déjà à cette adresse mail.</p>";
+                        		}
+                        		if($error==7){
+                        			echo "<p style='color:red'>Un compte existe déjà avec ce pseudo.</p>";
+                        		}
                         	}
                         ?>
 						<table class="table" align="center">

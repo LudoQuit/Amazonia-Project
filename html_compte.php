@@ -80,6 +80,20 @@
 				<h1 class="entete">Compte</h1>
 				<div class="cadre">
 					<form id="formclient" action="php_connexion.php" method="post">
+						<?php
+                			if(isset($_GET['err'])){
+                    			$error = $_GET['err'];
+                    			if($error==1){
+                        			echo "<p style='color:red'>Veuillez indiquer si vous êtes un vendeur ou un acheteur.</p>";
+                        		}
+                        		if($error==2){
+                        			echo "<p style='color:red'>Veuillez entrer un identifiant.</p>";
+                        		}
+                        		if($error==3){
+                        			echo "<p style='color:red'>Veuillez entrer votre mot de passe.</p>";
+                        		}
+                        	}
+                        ?>
 						<table class="table" align="center">
 							<tr>
 								<td style="width: 200px;"><p>Je suis :</p></td>

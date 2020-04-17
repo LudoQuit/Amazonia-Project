@@ -38,6 +38,7 @@
 
 	if($_POST["inscription"]){
 		if($db_found){
+			/* ON TESTE SI L'ADRESSE MAIL EST DEJA DANS LA BASE DE DONNEES */
 			if($classe == "acheteur"){
 				$sql = "SELECT * FROM acheteur";
 			}
@@ -45,12 +46,30 @@
 				$sql = "SELECT * FROM vendeur";
 			}
 			if ($mail != "") {
-				$sql .= " WHERE email LIKE '%$mail%'";
+				$sql .= " WHERE email LIKE '$mail'";
 			}
 			$result = mysqli_query($db_handle, $sql);
 			if (mysqli_num_rows($result) != 0) {
-				$erreur = "L'adresse mail est déjà utilisée.";
-			} else {
+				header('Location: http://127.0.0.1/html_inscription.php?err=6');
+				exit;
+			}
+			/* ON TESTE SI LE PSEUDO EST DEJA DANS LA BASE DE DONNEES */
+			if($classe == "acheteur"){
+				$sql = "SELECT * FROM acheteur";
+			}
+			if($classe == "vendeur"){
+				$sql = "SELECT * FROM vendeur";
+			}
+			if ($pseudo != "") {
+				$sql .= " WHERE pseudo LIKE '$pseudo'";
+			}
+			$result = mysqli_query($db_handle, $sql);
+			if (mysqli_num_rows($result) != 0) {
+				header('Location: http://127.0.0.1/html_inscription.php?err=7');
+				exit;
+			} 
+			/* SINON ON AJOUTE L'UTILISATEUR A LA BASE DE DONNEES */
+			else{
 				if($classe == "acheteur"){
 					$sql  = " INSERT INTO acheteur(email, pseudo, password) VALUES ('$mail', '$pseudo', '$pw')";
 					$result = mysqli_query($db_handle, $sql);
