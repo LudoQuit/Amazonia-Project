@@ -1,5 +1,7 @@
 <?php
 	$classe = isset($_POST["classe"]) ? $_POST["classe"] : "";
+	$nom = isset($_POST["nom"]) ? $_POST["nom"] : "";
+	$prenom = isset($_POST["prenom"]) ? $_POST["prenom"] : "";
 	$pseudo = isset($_POST["pseudo"]) ? $_POST["pseudo"] : "";
 	$mail = isset($_POST["mail"]) ? $_POST["mail"] : "";
 	$pw = isset($_POST["pw"]) ? $_POST["pw"] : "";
@@ -8,6 +10,14 @@
 
 
 	$err = 0;
+	if($nom == ""){
+		header('Location: http://127.0.0.1/html_inscription.php?err=8');
+		exit;
+	}
+	if($prenom == ""){
+		header('Location: http://127.0.0.1/html_inscription.php?err=9');
+		exit;
+	}
 	if($classe == ""){
 		header('Location: http://127.0.0.1/html_inscription.php?err=1');
 		exit;
@@ -81,7 +91,7 @@
 					header('Location: http://127.0.0.1/html_pageperso.php');
 				}
 				if($classe == "vendeur"){
-					$sql  = " INSERT INTO vendeur(nom, prenom, email, pseudo, password) VALUES ('', '', '$mail', '$pseudo', '$pw')";
+					$sql  = " INSERT INTO vendeur(nom, prenom, email, pseudo, password) VALUES ('$nom', '$prenom', '$mail', '$pseudo', '$pw')";
 					$result = mysqli_query($db_handle, $sql);
 					$_SESSION['Auth'] = array(
 						'pseudo' => $pseudo,

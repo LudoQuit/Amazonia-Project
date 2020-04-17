@@ -105,6 +105,12 @@
                         		if($error==7){
                         			echo "<p style='color:red'>Un compte existe déjà avec ce pseudo.</p>";
                         		}
+                        		if($error==8){
+                        			echo "<p style='color:red'>Veuillez entrer votre nom.</p>";
+                        		}
+                        		if($error==9){
+                        			echo "<p style='color:red'>Veuillez entrer votre prénom.</p>";
+                        		}
                         	}
                         ?>
 						<table class="table" align="center">
@@ -114,15 +120,23 @@
 								<td><p><input type="radio" name="classe" value="vendeur"> Vendeur</p></td>
 							</tr>
 							<tr>
-								<td><p>Votre identifiant :</p></td>
+								<td><p>Nom :</p></td>
+								<td colspan="2"><input type="text" name="nom" style="width: 300px;"></td>
+							</tr>
+							<tr>
+								<td><p>Prénom :</p></td>
+								<td colspan="2"><input type="text" name="prenom" style="width: 300px;"></td>
+							</tr>
+							<tr>
+								<td><p>Pseudo :</p></td>
 								<td colspan="2"><input type="text" name="pseudo" style="width: 300px;"></td>
 							</tr>
 							<tr>
-								<td><p>Votre adresse mail :</p></td>
+								<td><p>Adresse email :</p></td>
 								<td colspan="2"><input type="text" name="mail" style="width: 300px;"></td>
 							</tr>
 							<tr>
-								<td><p>Entrez votre mot de passe :</p></td>
+								<td><p>Mot de passe :</p></td>
 								<td colspan="2"><input type="password" name="pw" style="width: 300px;"></td>
 							</tr>
 							<tr>

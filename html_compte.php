@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if(isset($_SESSION['Auth'])){
+		header('Location:html_pageperso.php');
+	}
+	else{}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
