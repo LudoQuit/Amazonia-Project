@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Amazonia :: Accueil</title>
+	<title>Amazonia :: Panier</title>
 	<meta charset="utf-8">
 	<!--BOOTSTRAP-->
 	<meta name= "viewport" content= "width=device-width, initial-scale=1">
@@ -75,8 +75,41 @@
 			</div>
 			<!--CONTENU DE PANIER-->
 			<div class="col-md-9" id="contenu">
-				<h1 class="entete">Panier</h1>
-				
+				<h1 class="entete">Votre Panier</h1>
+				<?php
+
+					$database = "amazonia";
+
+					$db_handle = mysqli_connect('localhost', 'root', 'root');
+					$db_found = mysqli_select_db($db_handle, $database);
+
+					if (isset($_POST["valider"])){
+						if ($db_found) {
+
+							// AJOUTER L'ITEM AU PANIER DE LA BASE DE DONNEES
+
+							// AJOUTER LE CAS OU L'ITEM EST DEJA DANS LE PANIER
+
+							$sql="SELECT * FROM item,panier WHERE item.id=panier.id AND panier.acheteur_id= ******* "; // COMPLETER LES ETOILES
+							$result = mysqli_query($db_handle, $sql); 
+							
+							while ($data = mysqli_fetch_assoc($result)) {
+								echo'<table class="table">';
+								echo '<td><div class="col-md-2"><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></div>'; 						
+								echo '<div class="col-md-7">' . $data['nom'] . '<br>';
+								echo $data['description'] . '<br>';
+								echo $data['prixcourant'] . '€<br>';
+								echo '</div></td>';
+								echo'</table>';
+							}
+							
+						} else {
+							echo "Database not found";
+						}
+					}
+					//fermer la connexion
+					mysqli_close($db_handle);
+				?>
 			</div>
 		</div>
 

@@ -119,6 +119,13 @@
 						<td></td>
 						<td></td>
 					</tr>
+					<tr>
+						<td></td><td></td>
+						<td align="center">
+							<input style="border:1px solid #3B5565;background-color: #ccc;color: #3B5565; width: 180px;" class="btn btn-outline-secondary btn-lg" type="submit" name="tout" value="Tout voir"> 
+						</td>
+						<td></td>
+					</tr>
 				</table></form>
 				</div>
 			</div>

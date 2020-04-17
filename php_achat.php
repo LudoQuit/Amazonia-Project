@@ -93,11 +93,21 @@
 						
 						while ($data = mysqli_fetch_assoc($result)) {
 							echo'<table class="table">';
-							echo '<tr><td><a href="php_item.php"><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></td>'; 						
-							echo '<td><a href="php_item.php">' . $data['nom'] . '</a><br>';
+							echo '<td><div class="col-md-2"><a href="php_item.php?id=' . $data["id"] . '""><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></div>'; 						
+							echo '<div class="col-md-7"><a href="php_item.php?id=' . $data["id"] . '"">' . $data['nom'] . '</a><br>';
 							echo $data['description'] . '<br>';
-							echo $data['prixbase'] . '€<br></td></tr>';
-							echo '<br>';
+							echo $data['prixbase'] . '€<br>';
+							echo '<p>Type de vente : ';
+							if($data['id_achat']==1){
+								echo 'Enchères';
+							}
+							if($data['id_achat']==2){
+								echo 'Achat immédiat';
+							}
+							if($data['id_achat']==3){
+								echo 'Meilleure offre';
+							}
+							echo '</p></div></td>';
 							echo'</table>';
 						}
 						
@@ -114,11 +124,21 @@
 						
 						while ($data = mysqli_fetch_assoc($result)) {
 							echo'<table class="table">';
-							echo '<tr><td><a href="php_item.php"><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></td>'; 						
-							echo '<td><a href="php_item.php">' . $data['nom'] . '</a><br>';
+							echo '<td><div class="col-md-2"><a href="php_item.php?id=' . $data["id"] . '""><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></div>'; 						
+							echo '<div class="col-md-7"><a href="php_item.php?id=' . $data["id"] . '"">' . $data['nom'] . '</a><br>';
 							echo $data['description'] . '<br>';
-							echo $data['prixbase'] . '€<br></td></tr>';
-							echo '<br>';
+							echo $data['prixbase'] . '€<br>';
+							echo '<p>Type de vente : ';
+							if($data['id_achat']==1){
+								echo 'Enchères';
+							}
+							if($data['id_achat']==2){
+								echo 'Achat immédiat';
+							}
+							if($data['id_achat']==3){
+								echo 'Meilleure offre';
+							}
+							echo '</p></div></td>';
 							echo'</table>';
 						}
 						
@@ -135,11 +155,21 @@
 						
 						while ($data = mysqli_fetch_assoc($result)) {
 							echo'<table class="table">';
-							echo '<tr><td><a href="php_item.php"><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></td>'; 						
-							echo '<td><a href="php_item.php">' . $data['nom'] . '</a><br>';
+							echo '<td><div class="col-md-2"><a href="php_item.php?id=' . $data["id"] . '""><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></div>'; 						
+							echo '<div class="col-md-7"><a href="php_item.php?id=' . $data["id"] . '"">' . $data['nom'] . '</a><br>';
 							echo $data['description'] . '<br>';
-							echo $data['prixbase'] . '€<br></td></tr>';
-							echo '<br>';
+							echo $data['prixbase'] . '€<br>';
+							echo '<p>Type de vente : ';
+							if($data['id_achat']==1){
+								echo 'Enchères';
+							}
+							if($data['id_achat']==2){
+								echo 'Achat immédiat';
+							}
+							if($data['id_achat']==3){
+								echo 'Meilleure offre';
+							}
+							echo '</p></div></td>';
 							echo'</table>';
 						}
 						
@@ -156,12 +186,12 @@
 						
 						while ($data = mysqli_fetch_assoc($result)) {
 							echo'<table class="table">';
-							echo '<tr><td><a href="php_item.php"><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></td>'; 						
-							echo '<td><a href="php_item.php">' . $data['nom'] . '</a><br>';
+							echo '<td><div class="col-md-2"><a href="php_item.php?id=' . $data["id"] . '""><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></div>'; 						
+							echo '<div class="col-md-7"><a href="php_item.php?id=' . $data["id"] . '"">' . $data['nom'] . '</a><br>';
 							echo $data['description'] . '<br>';
-							echo $data['prixbase'] . '€<br></td></tr>';
-							echo '<br>';
-							echo'</table>';
+							echo $data['prixbase'] . '€<br>';
+							echo '<p>Type de vente : Enchères</p></div></td>';
+							echo '</table>';
 						}
 						
 					} else {
@@ -177,12 +207,12 @@
 						
 						while ($data = mysqli_fetch_assoc($result)) {
 							echo'<table class="table">';
-							echo '<tr><td><a href="php_item.php"><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></td>'; 						
-							echo '<td><a href="php_item.php">' . $data['nom'] . '</a><br>';
+							echo '<td><div class="col-md-2"><a href="php_item.php?id=' . $data["id"] . '""><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></div>'; 						
+							echo '<div class="col-md-7"><a href="php_item.php?id=' . $data["id"] . '"">' . $data['nom'] . '</a><br>';
 							echo $data['description'] . '<br>';
-							echo $data['prixbase'] . '€<br></td></tr>';
-							echo '<br>';
-							echo'</table>';
+							echo $data['prixbase'] . '€<br>';
+							echo '<p>Type de vente : Achat immédiat</p></div></td>';
+							echo '</table>';
 						}
 						
 					} else {
@@ -198,11 +228,42 @@
 						
 						while ($data = mysqli_fetch_assoc($result)) {
 							echo'<table class="table">';
-							echo '<tr><td><a href="php_item.php"><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></td>'; 						
-							echo '<td><a href="php_item.php">' . $data['nom'] . '</a><br>';
+							echo '<td><div class="col-md-2"><a href="php_item.php?id=' . $data["id"] . '""><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></div>'; 						
+							echo '<div class="col-md-7"><a href="php_item.php?id=' . $data["id"] . '"">' . $data['nom'] . '</a><br>';
 							echo $data['description'] . '<br>';
-							echo $data['prixbase'] . '€<br></td></tr>';
-							echo '<br>';
+							echo $data['prixbase'] . '€<br>';
+							echo '<p>Type de vente : Meilleure offre</p></div></td>';
+							echo '</table>';
+						}
+						
+					} else {
+						echo "Database not found";
+					}
+				} 
+
+				if (isset($_POST["tout"])){
+					if ($db_found) {
+						echo'<h4>> Tous nos items en vente</h4>';
+						$sql="SELECT * FROM item";
+						$result = mysqli_query($db_handle, $sql); 
+						
+						while ($data = mysqli_fetch_assoc($result)) {
+							echo'<table class="table">';
+							echo '<td><div class="col-md-2"><a href="php_item.php?id=' . $data["id"] . '"><img src="' . $data["photo"] . '" style = "width:100px; height:100px;"></a></div>'; 						
+							echo '<div class="col-md-7"><a href="php_item.php?id=' . $data["id"] . '">' . $data['nom'] . '</a><br>';
+							echo $data['description'] . '<br>';
+							echo $data['prixbase'] . '€<br>';
+							echo '<p>Type de vente : ';
+							if($data['id_achat']==1){
+								echo 'Enchères';
+							}
+							if($data['id_achat']==2){
+								echo 'Achat immédiat';
+							}
+							if($data['id_achat']==3){
+								echo 'Meilleure offre';
+							}
+							echo '</p></div></td>';
 							echo'</table>';
 						}
 						
