@@ -80,6 +80,7 @@
 				<h1 class="entete">Compte</h1>
 				<div class="cadre">
 					<form id="formclient" action="php_connexion.php" method="post">
+						<br>
 						<?php
                 			if(isset($_GET['err'])){
                     			$error = $_GET['err'];
@@ -89,26 +90,33 @@
                         		if($error==2){
                         			echo "<p style='color:red'>Veuillez entrer un identifiant.</p>";
                         		}
+                        		if($error==9){
+                        			echo "<p style='color:red'>Veuillez entrer une adresse mail.</p>";
+                        		}
                         		if($error==3){
                         			echo "<p style='color:red'>Veuillez entrer votre mot de passe.</p>";
                         		}
                         		if($error==4){
-                        			echo "<p style='color:red'>Identifiant invalide.</p>";
+                        			echo "<p style='color:red'>Identification invalide.</p>";
                         		}
                         		if($error==5){
-                        			echo "<p style='color:red'>Mot de passe invalide</p>";
+                        			echo "<p style='color:red'>Mot de passe invalide.</p>";
                         		}
                         	}
                         ?>
 						<table class="table" align="center">
 							<tr>
 								<td style="width: 200px;"><p>Je suis :</p></td>
-								<td><p><input type="radio" name="classe">    Acheteur</p></td>
-								<td><p><input type="radio" name="classe"> Vendeur</p></td>
+								<td><p><input type="radio" name="classe" value="acheteur"> Acheteur</p></td>
+								<td><p><input type="radio" name="classe" value="vendeur"> Vendeur</p></td>
 							</tr>
 							<tr>
-								<td><p>Identifiant ou adresse mail :</p></td>
+								<td><p>Identifiant :</p></td>
 								<td colspan="2"><input type="text" name="id" style="width: 350px;"></td>
+							</tr>
+							<tr>
+								<td><p>Email :</p></td>
+								<td colspan="2"><input type="text" name="mail" style="width: 350px;"></td>
 							</tr>
 							<tr>
 								<td><p>Mot de passe :</p></td>
