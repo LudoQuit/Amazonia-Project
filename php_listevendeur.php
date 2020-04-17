@@ -87,6 +87,18 @@ if(Auth::isLogged()){
 			<div class="col-md-9" id="contenu">
 				<h1 class="entete">Supprimer des vendeurs</h1>
 				<div class="cadre">
+					<form action="php_choixadmin.php" method="POST">
+					<table class="table" style="margin-top: 10px;">
+						<tr style="background-color: #3B5565;">
+							<td align="center">
+								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px"  type="submit" name="vendeur" value="Liste vendeurs">
+							</td>
+							<td align="center">
+								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px;"  type="submit" name="item" value="Liste items">
+							</td>
+						</tr>
+					</table>
+					</form>
 					<br>
 					<form  action="php_suppvendeur.php" method="POST">
 					<table class="table">

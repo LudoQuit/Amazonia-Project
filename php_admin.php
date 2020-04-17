@@ -33,12 +33,12 @@
 				header('Location: http://127.0.0.1/html_admin.php?err=4');
 				exit;
 			} else {
-				echo"Vous êtes bien connecté ! ";
 				$_SESSION['Auth'] = array(
 					'pseudo' => $idadmin,
 					'email' => $mailadmin,
 					'password' => $pwadmin
 				);
+				header ('Location:html_choixadmin.php');
 			}
 		}
 	}
