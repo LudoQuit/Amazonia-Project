@@ -1,9 +1,18 @@
 <?php
-	session_start();
+session_start();
+require('php_auth.php');
 	if(isset($_SESSION['Auth'])){
+		header('Location:html_choixadmin.php');
+	}
+	elseif (isset($_SESSION['vendeur'])) {
 		header('Location:html_pageperso.php');
 	}
-	else{}
+	elseif (isset($_SESSION['acheteur'])) {
+		header('Location:html_pageperso.php');
+	}
+	else{
+
+	}
 ?>
 
 <!DOCTYPE html>
@@ -147,6 +156,22 @@
  			<div class="col-md-12" style="height:75px; background-color:#3B5565; text-align: center;">
  				<br>
  				<p class="menu">Contact : <a href="mailto:serviceclient@amazonia.fr" class="menu">serviceclient@amazonia.fr</a></p>
+ 				<p class="menu"><?php 
+
+ 				if (!isset($_SESSION['Auth']) and !isset($_SESSION['vendeur']) and !isset($_SESSION['acheteur'])){
+ 					echo"Vous n'êtes pas connecté";
+
+ 				} elseif (isset($_SESSION['vendeur'])){
+ 					echo"Bonjour " .$_SESSION['vendeur']['pseudo']. " vous êtes connecté sur votre compte vendeur";
+ 					echo"<br><a href='php_logout.php'>Déconnexion</a>";
+ 				} elseif (isset($_SESSION['Auth'])){
+ 					echo"Bonjour " .$_SESSION['Auth']['pseudo']. " vous êtes connecté sur votre compte admin";
+ 					echo"<br><a href='php_logout.php'>Déconnexion</a>";
+ 				} elseif (isset($_SESSION['acheteur'])){
+ 					echo"Bonjour " .$_SESSION['acheteur']['pseudo']. " vous êtes connecté sur votre compte acheteur";
+ 					echo"<br><a href='php_logout.php'>Déconnexion</a>";
+ 				}
+ 				?>
  			</div>
 		</div>
 	</div>

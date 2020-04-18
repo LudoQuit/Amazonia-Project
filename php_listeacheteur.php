@@ -1,21 +1,17 @@
 <?php
 session_start();
 require('php_auth.php');
-	if(isset($_SESSION['Auth'])){
-		header('Location:html_choixadmin.php');
-	}
-	elseif (isset($_SESSION['vendeur']) or isset($_SESSION['acheteur'])) {
-		header('Location:html_index.php');
-	}
-	else{
+if(Auth::isLogged()){
 
-	}
+} else{
+	header('Location:html_admin.php');
+}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Amazonia :: Admin</title>
+	<title>Admin :: Acheteurs</title>
 	<meta charset="utf-8">
 	<!--BOOTSTRAP-->
 	<meta name= "viewport" content= "width=device-width, initial-scale=1">
@@ -87,52 +83,56 @@ require('php_auth.php');
 					<tr><td align="right"><input type="button" name="filtrer" value="Filtrer"></td></tr>
 				</table></form>
 			</div>
-
-			<!--CONTNENU DU COTE DROIT-->
-			<!--FORMULAIRE DE CONNEXION OU D'INSCRIPTION-->
+			<!--CONTENU-->
 			<div class="col-md-9" id="contenu">
-				<h1 class="entete">Administrateur</h1>
+				<h1 class="entete">Supprimer des acheteurs</h1>
 				<div class="cadre">
-					<form id="formadmin" action="php_admin.php" method="post">
-						<br>
-						<?php
-                			if(isset($_GET['err'])){
-                    			$error = $_GET['err'];
-                    			if($error==1){
-                        			echo "<p style='color:red'>Veuillez entrer votre identifiant.</p>";
-                        		}
-                        		if($error==2){
-                        			echo "<p style='color:red'>Veuillez entrer une adresse email.</p>";
-                        		}
-                        		if($error==3){
-                        			echo "<p style='color:red'>Veuillez entrer un mot de passe.</p>";
-                        		}
-                        		if($error==4){
-                        			echo "<p style='color:red'>Echec connexion.</p>";
-                        		}
-                        	}
-                        ?>
-						<table class="table" align="center">
-							<tr>
-								<td><p>Identifiant :</p></td>
-								<td colspan="2"><input type="text" name="idadmin" style="width: 350px;"></td>
-							</tr>
-							<tr>
-								<td><p>Adresse mail :</p></td>
-								<td colspan="2"><input type="text" name="mailadmin" style="width: 350px;"></td>
-							</tr>
-							<tr>
-								<td><p>Mot de passe :</p></td>
-								<td colspan="2"><input type="password" name="pwadmin" style="width: 350px;"></td>
-							</tr>
-							<tr>
-								<td colspan="3" align="center"><input type="submit" name="connexion" value="Se connecter"></td>
-							</tr>
-						</table>
+					<form action="php_choixadmin.php" method="POST">
+					<table class="table" style="margin-top: 10px;">
+						<tr style="background-color: #3B5565;">
+							<td align="center">
+								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px"  type="submit" name="vendeur" value="Liste vendeurs">
+							</td>
+							<td align="center">
+								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px"  type="submit" name="acheteur" value="Acheteurs">
+							</td>
+							<td align="center">
+								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px;"  type="submit" name="item" value="Items">
+							</td>
+						</tr>
+					</table>
 					</form>
-					
+					<br>
+					<form  action="php_suppacheteur.php" method="POST">
+					<table class="table">
+						<tr>
+    				        <th>id</th>
+    				        <th>email</th>
+    				        <th>pseudo</th>
+    				        <th>mot de passe</th>
+    				        <th>supprimer</th>
+						</tr>
+						<?php
+							$connect = mysqli_connect('localhost','root','');
+							mysqli_select_db( $connect,'amazonia');
+							$acheteur = "SELECT * FROM acheteur";
+							$result = mysqli_query($connect, $acheteur) or exit ('Erreur SQL !'.$acheteur.'<br>'.			mysqli_error());;
+		
+							while ($ligne = mysqli_fetch_array($result)){
+								echo"<tr><td>".$ligne['id']."</td>";
+								echo"<td>".$ligne['email']."</td>";
+								echo"<td>".$ligne['pseudo']."</td>";
+								echo"<td>".$ligne['password']."</td>";
+								echo"<td><input type='checkbox' name='delete[]' value='".$ligne['id']."'></td>";
+								echo "</tr>";
+							}
+								mysqli_close($connect);
+						?>
+					</table>
+					<input type="submit" name="supp" value="Supprimer">
+					</form>
+					<br>
 				</div>
-				
 			</div>
 		</div>
 
@@ -140,7 +140,7 @@ require('php_auth.php');
 		<div class="row">
  			<div class="col-md-12" style="height:75px; background-color:#3B5565; text-align: center;">
  				<br>
- 				<p class="menu">Contact : <a href="mailto:ludovic.quiterio@edu.ece.fr" class="menu">serviceclient@amazonia.fr</a></p>
+ 				<p class="menu">Contact : <a href="mailto:serviceclient@amazonia.fr" class="menu">serviceclient@amazonia.fr</a></p>
  				<p class="menu"><?php 
 
  				if (!isset($_SESSION['Auth']) and !isset($_SESSION['vendeur']) and !isset($_SESSION['acheteur'])){

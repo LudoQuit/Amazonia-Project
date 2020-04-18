@@ -40,7 +40,7 @@
 					exit;
 				} 
 				else {
-					$_SESSION['Auth'] = array(
+					$_SESSION['acheteur'] = array(
 						'pseudo' => $id,
 						'email' => $mail,
 						'password' => $pw
@@ -56,7 +56,7 @@
 					exit;
 				}
 				else {
-					$_SESSION['Auth'] = array(
+					$_SESSION['vendeur'] = array(
 						'pseudo' => $id,
 						'email' => $mail,
 						'password' => $pw

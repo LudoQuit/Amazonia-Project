@@ -56,7 +56,7 @@ if(Auth::isLogged()){
  			<div class="col-md-3" style="height:100px; background-color:#3B5565;"></div>
  			<!--ESPACE ADMINISTRATEUR DU SITE-->
  			<div class="col-md-1" style="height:100px; background-color:#3B5565;">
-				<h4 class="menu"><a class="clickmenu" href="php_logout.php"><img src="admin.gif" class="imgmenu" alt="admin">Log out</a></h4>
+				<h4 class="menu"><a class="clickmenu" href="html_admin.php"><img src="admin.gif" class="imgmenu" alt="admin">Admin</a></h4>
  			</div>
 		</div>
 
@@ -94,7 +94,10 @@ if(Auth::isLogged()){
 								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px"  type="submit" name="vendeur" value="Liste vendeurs">
 							</td>
 							<td align="center">
-								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px;"  type="submit" name="item" value="Liste items">
+								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px"  type="submit" name="acheteur" value="Acheteurs">
+							</td>
+							<td align="center">
+								<input style="border:3px solid #3B5565; border-radius: 3px;background-color: white;color: #3B5565; width: 180px; padding: 0px;"  type="submit" name="item" value="Items">
 							</td>
 						</tr>
 					</table>
@@ -147,6 +150,22 @@ if(Auth::isLogged()){
  			<div class="col-md-12" style="height:75px; background-color:#3B5565; text-align: center;">
  				<br>
  				<p class="menu">Contact : <a href="mailto:serviceclient@amazonia.fr" class="menu">serviceclient@amazonia.fr</a></p>
+ 				<p class="menu"><?php 
+
+ 				if (!isset($_SESSION['Auth']) and !isset($_SESSION['vendeur']) and !isset($_SESSION['acheteur'])){
+ 					echo"Vous n'êtes pas connecté";
+
+ 				} elseif (isset($_SESSION['vendeur'])){
+ 					echo"Bonjour " .$_SESSION['vendeur']['pseudo']. " vous êtes connecté sur votre compte vendeur";
+ 					echo"<br><a href='php_logout.php'>Déconnexion</a>";
+ 				} elseif (isset($_SESSION['Auth'])){
+ 					echo"Bonjour " .$_SESSION['Auth']['pseudo']. " vous êtes connecté sur votre compte admin";
+ 					echo"<br><a href='php_logout.php'>Déconnexion</a>";
+ 				} elseif (isset($_SESSION['acheteur'])){
+ 					echo"Bonjour " .$_SESSION['acheteur']['pseudo']. " vous êtes connecté sur votre compte acheteur";
+ 					echo"<br><a href='php_logout.php'>Déconnexion</a>";
+ 				}
+ 				?>
  			</div>
 		</div>
 	</div>

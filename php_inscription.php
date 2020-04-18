@@ -83,7 +83,7 @@
 				if($classe == "acheteur"){
 					$sql  = " INSERT INTO acheteur(email, pseudo, password) VALUES ('$mail', '$pseudo', '$pw')";
 					$result = mysqli_query($db_handle, $sql);
-					$_SESSION['Auth'] = array(
+					$_SESSION['acheteur'] = array(
 						'pseudo' => $pseudo,
 						'email' => $mail,
 						'password' => $pw
@@ -93,7 +93,7 @@
 				if($classe == "vendeur"){
 					$sql  = " INSERT INTO vendeur(nom, prenom, email, pseudo, password) VALUES ('$nom', '$prenom', '$mail', '$pseudo', '$pw')";
 					$result = mysqli_query($db_handle, $sql);
-					$_SESSION['Auth'] = array(
+					$_SESSION['vendeur'] = array(
 						'pseudo' => $pseudo,
 						'email' => $mail,
 						'password' => $pw
